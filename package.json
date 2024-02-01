@@ -1,0 +1,44 @@
+{
+    "name": "axios-interceptor-wrapper",
+    "version": "1.0.0",
+    "description": "a simple implementation to support bidirectional interceptors for axios.",
+    "files": [
+        "dist"
+    ],
+    "main": "dist/cjs/index.js",
+    "module": "dist/es2015/index.js",
+    "types": "dist/cjs/index.d.ts",
+    "scripts": {
+        "lint": "eslint ./src --fix --ext .ts",
+        "build": "rm -rf dist && npm run build:es2015 && npm run build:cjs",
+        "build:es2015": "tsc --declaration --skipLibCheck --module es2015 --target es2015 --outDir dist/es2015",
+        "build:cjs": "tsc --declaration --skipLibCheck --module commonjs --target es5 --outDir dist/cjs",
+        "test": "mocha -r ts-node/register --timeout 50000 --exit src/**/*.test.ts"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tyuuni/axios-interceptor-wrapper.git"
+    },
+    "keywords": [
+        "axios",
+        "interceptor",
+        "bidirectional"
+    ],
+    "author": "tyuuni",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/tyuuni/axios-interceptor-wrapper/issues"
+    },
+    "homepage": "https://github.com/tyuuni/axios-interceptor-wrapper#readme",
+    "devDependencies": {
+        "@types/axios": "^0.14.0",
+        "@typescript-eslint/eslint-plugin": "^6.20.0",
+        "@typescript-eslint/parser": "^6.20.0",
+        "chai": "^5.0.3",
+        "eslint": "^8.56.0",
+        "eslint-plugin-spellcheck": "^0.0.20",
+        "mocha": "^10.2.0",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.3.3"
+    }
+}
